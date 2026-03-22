@@ -1,0 +1,49 @@
+/* Semantic tokens — map primitives to purposes.
+   These are what components actually reference.
+   Overridden per-theme in themes/*.css */
+
+:root {
+  /* Density scale — multiplied by spacing tokens in components */
+  --density-scale: 1;
+
+  /* Surfaces */
+  --color-surface: var(--background);
+  --color-surface-raised: var(--card);
+  --color-surface-overlay: var(--popover);
+  --color-surface-sunken: var(--muted);
+
+  /* Surface aliases — some apps use longer names */
+  --color-surface-primary: var(--color-surface);
+  --color-surface-secondary: var(--color-surface-raised);
+
+  /* Surface interactive */
+  --color-surface-hover: color-mix(in srgb, var(--color-text-primary) 8%, var(--color-surface));
+  --color-accent-hover: color-mix(in srgb, var(--color-accent) 85%, black);
+
+  /* Text */
+  --color-text-primary: var(--foreground);
+  --color-text-secondary: var(--muted-foreground);
+  --color-text-muted: var(--muted-foreground);
+  --color-text-tertiary: var(--color-text-muted);
+  --color-text-inverse: var(--primary-foreground);
+
+  /* Borders */
+  --color-border-primary: var(--border);
+  --color-border-secondary: var(--border);
+
+  /* Interactive */
+  --color-accent: var(--primary);
+  --color-accent-foreground: var(--primary-foreground);
+
+  /* Feedback */
+  --color-success: oklch(0.6 0.18 145);
+  --color-warning: oklch(0.7 0.15 75);
+  --color-error: var(--destructive);
+  --color-info: oklch(0.65 0.15 240);
+
+  /* Feedback aliases */
+  --color-feedback-success: var(--color-success);
+  --color-feedback-warning: var(--color-warning);
+  --color-feedback-error: var(--color-error);
+  --color-feedback-info: var(--color-info);
+}

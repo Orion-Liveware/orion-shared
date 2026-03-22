@@ -1,0 +1,18 @@
+/* Density modes — controlled via data-density attribute on <html>.
+   Components use calc(var(--space-X) * var(--density-scale)) for spacing. */
+
+/* Compact — tighter padding, for power users */
+[data-density="compact"] {
+  --density-scale: 0.875;
+}
+
+/* Comfortable — default, generous padding */
+:root,
+[data-density="comfortable"] {
+  --density-scale: 1;
+}
+
+/* Spacious — extra breathing room, best for sensory sensitivity */
+[data-density="spacious"] {
+  --density-scale: 1.25;
+}

@@ -1,0 +1,11 @@
+[package]
+name = "orion-secrets"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Shared OS keyring access for Orion apps — wraps keyring-rs with consistent error handling"
+
+[dependencies]
+keyring = { version = "3", features = ["apple-native"] }
+thiserror = "2"
+tracing = "0.1"

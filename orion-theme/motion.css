@@ -1,0 +1,40 @@
+/* Motion defaults — reduced by default, functional transitions only.
+   Only animate opacity and transform (GPU-composited).
+   Never animate position/scale on elements containing text.
+   No bouncing, no parallax, no auto-playing animations.
+   Focus rings appear instantly (no animation). */
+
+/* Base transitions — fast, subtle, functional */
+* {
+  transition-property: opacity, transform, background-color, border-color, color;
+  transition-duration: var(--duration-fast);
+  transition-timing-function: var(--easing-default);
+}
+
+/* Focus rings must appear instantly */
+*:focus-visible {
+  transition-duration: 0ms;
+}
+
+/* Respect OS-level reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Per-app "Calm mode" — forces reduced motion regardless of OS setting.
+   Toggle by adding data-calm-mode="true" to <html>. */
+[data-calm-mode="true"] *,
+[data-calm-mode="true"] *::before,
+[data-calm-mode="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
