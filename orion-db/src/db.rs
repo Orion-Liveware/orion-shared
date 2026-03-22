@@ -1,5 +1,5 @@
-use surrealdb::engine::any::Any;
 use surrealdb::Surreal;
+use surrealdb::engine::any::Any;
 
 use crate::error::CoreError;
 
@@ -57,7 +57,9 @@ mod tests {
 
     #[tokio::test]
     async fn test_init_db_in_memory() {
-        let db = init_db("mem://").await.expect("should connect to in-memory db");
+        let db = init_db("mem://")
+            .await
+            .expect("should connect to in-memory db");
         init_migration_table(&db)
             .await
             .expect("should initialize migration table");

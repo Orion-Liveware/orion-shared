@@ -137,10 +137,9 @@ mod tests {
         relate_to_domain(&db, &domain_id, &item.id).await.unwrap();
 
         // List by domain
-        let items: Vec<TestItem> =
-            list_by_domain(&db, "test_item", &domain_id, "created_at DESC")
-                .await
-                .unwrap();
+        let items: Vec<TestItem> = list_by_domain(&db, "test_item", &domain_id, "created_at DESC")
+            .await
+            .unwrap();
         assert_eq!(items.len(), 1);
         assert_eq!(items[0].title, "Hello");
     }
@@ -162,10 +161,9 @@ mod tests {
             .await
             .unwrap();
 
-        let items: Vec<TestItem> =
-            list_by_domain(&db, "test_item", &domain_id, "created_at DESC")
-                .await
-                .unwrap();
+        let items: Vec<TestItem> = list_by_domain(&db, "test_item", &domain_id, "created_at DESC")
+            .await
+            .unwrap();
         assert_eq!(items.len(), 0);
     }
 
