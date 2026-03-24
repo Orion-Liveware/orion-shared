@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Background gradient: deep space -->
+    <radialGradient id="bg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0d0d1a"/>
+    </radialGradient>
+
+    <!-- Star glow filter -->
+    <filter id="glow-bright" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-medium" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-soft" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Subtle outer glow for the whole constellation -->
+    <filter id="constellation-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0.3 0 0 0 0.2
+                0 0.3 0 0 0.3
+                0 0 0.5 0 0.5
+                0 0 0 0.4 0"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="180" fill="url(#bg)"/>
+
+  <!-- Faint dust/nebula suggestion behind the belt area -->
+  <ellipse cx="512" cy="480" rx="200" ry="80" fill="#2a1a3a" opacity="0.3"/>
+  <ellipse cx="530" cy="520" rx="160" ry="60" fill="#1a2a3a" opacity="0.2"/>
+
+  <!-- Constellation lines (subtle) -->
+  <g stroke="#4a6a8a" stroke-width="1.5" opacity="0.25" stroke-linecap="round">
+    <!-- Shoulders to belt -->
+    <line x1="340" y1="260" x2="430" y2="440"/>
+    <line x1="680" y1="240" x2="590" y2="440"/>
+    <!-- Belt -->
+    <line x1="430" y1="440" x2="512" y2="460"/>
+    <line x1="512" y1="460" x2="590" y2="440"/>
+    <!-- Belt to feet -->
+    <line x1="430" y1="440" x2="360" y2="720"/>
+    <line x1="590" y1="440" x2="680" y2="740"/>
+    <!-- Shoulders across -->
+    <line x1="340" y1="260" x2="680" y2="240"/>
+  </g>
+
+  <!-- Background stars (tiny, scattered) -->
+  <g fill="#ffffff" opacity="0.15">
+    <circle cx="150" cy="180" r="1.5"/>
+    <circle cx="820" cy="120" r="1"/>
+    <circle cx="900" cy="350" r="1.2"/>
+    <circle cx="130" cy="500" r="1"/>
+    <circle cx="880" cy="600" r="1.5"/>
+    <circle cx="200" cy="800" r="1"/>
+    <circle cx="750" cy="850" r="1.2"/>
+    <circle cx="100" cy="350" r="0.8"/>
+    <circle cx="920" cy="480" r="1"/>
+    <circle cx="480" cy="150" r="0.8"/>
+    <circle cx="560" cy="820" r="1"/>
+    <circle cx="250" cy="620" r="0.8"/>
+    <circle cx="780" cy="400" r="1"/>
+  </g>
+
+  <!-- Constellation glow layer -->
+  <g filter="url(#constellation-glow)">
+    <circle cx="340" cy="260" r="12" fill="#e8a87c"/>
+    <circle cx="680" cy="240" r="10" fill="#b8d4e8"/>
+    <circle cx="430" cy="440" r="8" fill="#d0e0f0"/>
+    <circle cx="512" cy="460" r="8" fill="#d0e0f0"/>
+    <circle cx="590" cy="440" r="8" fill="#d0e0f0"/>
+    <circle cx="360" cy="720" r="10" fill="#c0d0e0"/>
+    <circle cx="680" cy="740" r="12" fill="#b0d0f0"/>
+  </g>
+
+  <!-- Stars -->
+  <!-- Betelgeuse (top-left shoulder, warm/orange, largest) -->
+  <circle cx="340" cy="260" r="16" fill="#e8a87c" filter="url(#glow-bright)" opacity="0.9"/>
+  <circle cx="340" cy="260" r="8" fill="#f0c8a0"/>
+  <circle cx="340" cy="260" r="4" fill="#ffffff"/>
+
+  <!-- Bellatrix (top-right shoulder, blue-white) -->
+  <circle cx="680" cy="240" r="13" fill="#b8d4e8" filter="url(#glow-bright)" opacity="0.85"/>
+  <circle cx="680" cy="240" r="7" fill="#d0e4f0"/>
+  <circle cx="680" cy="240" r="3.5" fill="#ffffff"/>
+
+  <!-- Belt stars (three in a slight diagonal, blue-white) -->
+  <!-- Alnitak -->
+  <circle cx="430" cy="440" r="10" fill="#c0d8f0" filter="url(#glow-medium)" opacity="0.85"/>
+  <circle cx="430" cy="440" r="5.5" fill="#d8e8f8"/>
+  <circle cx="430" cy="440" r="3" fill="#ffffff"/>
+
+  <!-- Alnilam (center, slightly brighter) -->
+  <circle cx="512" cy="460" r="11" fill="#c8ddf0" filter="url(#glow-medium)" opacity="0.9"/>
+  <circle cx="512" cy="460" r="6" fill="#e0eef8"/>
+  <circle cx="512" cy="460" r="3.5" fill="#ffffff"/>
+
+  <!-- Mintaka -->
+  <circle cx="590" cy="440" r="10" fill="#c0d8f0" filter="url(#glow-medium)" opacity="0.85"/>
+  <circle cx="590" cy="440" r="5.5" fill="#d8e8f8"/>
+  <circle cx="590" cy="440" r="3" fill="#ffffff"/>
+
+  <!-- Saiph (bottom-left foot) -->
+  <circle cx="360" cy="720" r="12" fill="#b0c8e0" filter="url(#glow-medium)" opacity="0.8"/>
+  <circle cx="360" cy="720" r="6.5" fill="#c8dce8"/>
+  <circle cx="360" cy="720" r="3.5" fill="#ffffff"/>
+
+  <!-- Rigel (bottom-right foot, blue, bright) -->
+  <circle cx="680" cy="740" r="15" fill="#8cb8e0" filter="url(#glow-bright)" opacity="0.9"/>
+  <circle cx="680" cy="740" r="8" fill="#a8d0f0"/>
+  <circle cx="680" cy="740" r="4" fill="#ffffff"/>
+  <g>
+    <ellipse cx="802" cy="842" rx="70" ry="70" fill="#000000" opacity="0.3"/>
+    <ellipse cx="800" cy="840" rx="70" ry="70" fill="#6a6a5a"/>
+    <ellipse cx="800" cy="840" rx="70" ry="70" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.3"/>
+    <text x="800" y="840" text-anchor="middle" dominant-baseline="central" font-family="-apple-system, SF Pro Rounded, Helvetica Neue, Arial, sans-serif" font-size="90" font-weight="700" fill="#ffffff" letter-spacing="2">S</text>
+  </g>
+</svg>
